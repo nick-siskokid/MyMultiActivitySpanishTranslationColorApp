@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundColor(Color.parseColor("white"));
                 Intent intent = new Intent(MainActivity.this, CanvasActivity.class);
+                String backgroundColor = "green";
+                intent.putExtra("Key", backgroundColor);
                 startActivity(intent);
             }
 
