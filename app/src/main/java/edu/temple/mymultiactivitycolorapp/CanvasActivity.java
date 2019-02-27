@@ -18,13 +18,21 @@ public class CanvasActivity extends AppCompatActivity {
 
         //Retrieve intent passed from Main Activity
         Intent intent = getIntent();
+        //Retrieve bundle attached to intent
+        Bundle bundle = intent.getExtras();
+        //get color and its integer from the bundle
+        int color = bundle.getInt("IntKey");
+        //String backgroundColor = bundle.getString("StringKey");
+
+
         constraintLayout = findViewById(R.id.canvasConstraintLayout);
-        String backgroundColor = intent.getStringExtra("Key");
 
         //testTextView = findViewById(R.id.testTextView);
         //testTextView.setText(backgroundColor);
 
-        constraintLayout.setBackgroundColor(Color.parseColor(backgroundColor));
+        //set background color of layout
+        constraintLayout.setBackgroundColor(color);
+        //constraintLayout.setBackgroundColor(Color.parseColor(backgroundColor));
 
     }
 }

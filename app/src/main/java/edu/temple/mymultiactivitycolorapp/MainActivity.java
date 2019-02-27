@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         colors.add("purple");
         */
 
-        
+
         /*declaration for array of color names. Takes string array resource from strings.xml file
         with respect to the language set on the emulator */
         Resources res = getResources();
@@ -54,10 +54,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundColor(Color.parseColor("white"));
+                //intent declaration
                 Intent intent = new Intent(MainActivity.this, CanvasActivity.class);
-                //String backgroundColor = "green";
+
+
+                /*grab the color and its corresponding integer when user selects particular text view*/
                 String backgroundColor = parent.getItemAtPosition(position).toString();
-                intent.putExtra("Key", backgroundColor);
+                int color = color_ints[position];
+                /*
+                create bundle object to pass data of multiple types
+                to child activity
+                */
+
+                Bundle bundle = new Bundle();
+                bundle.putString("StringKey", backgroundColor);
+                bundle.putInt("IntKey", color);
+                /*attach bundle to the intent*/
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
 
