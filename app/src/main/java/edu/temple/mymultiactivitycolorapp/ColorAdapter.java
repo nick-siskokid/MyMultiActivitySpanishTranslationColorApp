@@ -12,20 +12,21 @@ import java.util.ArrayList;
 public class ColorAdapter extends BaseAdapter {
 
     Context c;
-    ArrayList<String> al;
+    //ArrayList<String> al;
+    String[] s;
 
-    public ColorAdapter(Context c, ArrayList<String> al){
+    public ColorAdapter(Context c, String[] s){
         this.c = c;
-        this.al = al;
+        this.s = s;
     }
     @Override
     public int getCount() {
-            return al.size();
+            return s.length;
         }
 
     @Override
     public Object getItem(int position) {
-        return al.get(position);
+        return s[position];
     }
 
     @Override
@@ -43,7 +44,7 @@ public class ColorAdapter extends BaseAdapter {
             textview = new TextView(c);
         }
         textview.setText(String.valueOf(getItem(position)));
-        textview.setBackgroundColor(Color.parseColor(getItem(position).toString()));
+        //textview.setBackgroundColor(Color.parseColor(getItem(position).toString()));
         return textview;
     }
 }
