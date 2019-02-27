@@ -1,6 +1,7 @@
 package edu.temple.mymultiactivitycolorapp;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ArrayList<String> colors = new ArrayList<>();
+        /*final ArrayList<String> colors = new ArrayList<>();
         colors.add("red");
         colors.add("blue");
         colors.add("cyan");
@@ -35,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
         colors.add("aqua");
         colors.add("lime");
         colors.add("purple");
+        */
 
+        Resources res = getResources();
+        String[] colors = res.getStringArray(R.array.colors_array);
         spinner = findViewById(R.id.spinner);
 
         ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
