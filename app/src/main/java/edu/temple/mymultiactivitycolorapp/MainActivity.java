@@ -38,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
         colors.add("purple");
         */
 
-        //obtains string array resource by id
-        //appropriate sptring array resource will be picked according to emulator configuration
+        
+        /*declaration for array of color names. Takes string array resource from strings.xml file
+        with respect to the language set on the emulator */
         Resources res = getResources();
         String[] colors = res.getStringArray(R.array.colors_array);
         spinner = findViewById(R.id.spinner);
-
-        ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
+        //declaration for colors array (their integer values).
+        //each index of colors and color_ints correspond to a color and its integer value
+        final int[] color_ints = res.getIntArray(R.array.color_ints);        ColorAdapter adapter = new ColorAdapter(MainActivity.this, colors);
 
         spinner.setAdapter(adapter);
 
